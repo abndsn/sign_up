@@ -8150,3 +8150,1717 @@ Processing by StaticPagesController#home as HTML
   Rendered layouts/_footer.html.erb (0.2ms)
 Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
   [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (62.7ms)[0m  [1mDROP DATABASE IF EXISTS `saint_coran_test`[0m
+  [1m[35m (16.3ms)[0m  CREATE DATABASE `saint_coran_test` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`
+  [1m[36m (202.4ms)[0m  [1mCREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `email` varchar(255), `created_at` datetime, `updated_at` datetime, `password_digest` varchar(255), `remember_digest` varchar(255), `pays` varchar(255), `image` varchar(255), `admin` tinyint(1), `activation_digest` varchar(255), `activated` tinyint(1) DEFAULT 0, `activated_at` datetime, `reset_digest` varchar(255), `reset_send_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (704.5ms)[0m  CREATE UNIQUE INDEX `index_users_on_email` USING btree ON `users` (`email`) 
+  [1m[36m (192.0ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (189.1ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20141221000507')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20141214122751')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20141214154709')
+  [1m[36m (18.6ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20141214160252')[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20141215215441')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20141216174233')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20141216181943')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20141216182052')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20141216182126')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20141216182149')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20141217143243')
+  [1m[36m (1.5ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20141218151720')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20141218182626')
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (8.6ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mFixture Delete (41.7ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (19.8ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `admin`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('Michael Example', 'michael@example.com', '$2a$04$kR1GwMCIzrP7CgeLduCQIeiEKrgFTXjNAwEmUqYUx/fqWDCV2/LCy', 1, 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 762146111)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('Sterling Archer', 'duchess@example.gov', '$2a$04$wiRu5RQTB.twNTu/JN09MemsCmN8O.YxmA5iaet9e1OuYoAWhFL8u', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 950961012)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('Lana Kane', 'hands@example.gov', '$2a$04$l5MtIcbaYh5bIxHG7pKuIevmCcdNH5CoG7FtiSQyojQAIqXUJyYVi', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 409608538)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('Mallory Archer', 'boss@example.gov', '$2a$04$Q.LfuHU5e/TETyC0kfzljOq.WCp1StI4t6YnNsQ/8DeQxfZ3BCTGe', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 785162917)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 0', 'user-0@example.com', '$2a$04$jDinyP3xFdH4eoQ4/jWRoeAwqH7DrEFyWMSNsrbGsMrmQS3CPo3xC', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 338193910)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 1', 'user-1@example.com', '$2a$04$bO3YNn0aVxqtP8jeT0JTreZhnGhnGAoBnTDwXi3g19yanhPmySoiW', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 590306657)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 2', 'user-2@example.com', '$2a$04$qNQRxhFK5DHhB.BddNmt6.T2dpR7M1XcRjYrrBMHnyHEOMuJBu9E.', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 975572189)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 3', 'user-3@example.com', '$2a$04$anodGGAE7LdXgd.hJAxWD.xfwwYKbjl8T2WCdNjfHEia//KAN4Plu', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 220281934)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 4', 'user-4@example.com', '$2a$04$xhFdXvLevndCq4yXfr7lEO9vXae599c8rKGAGMciet.M5Oll85c86', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 323332591)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 5', 'user-5@example.com', '$2a$04$vH5AhCsvmIA.jEcLnxIf9uAB7oIh/9K2eEaBSqjgLPI8METdVl7oO', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 608344442)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 6', 'user-6@example.com', '$2a$04$5QRP02VAqar83i8rbTSzEu9MS.Zq3CWeAC/U.QdQmrLXQRi5qhPgq', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 1028376774)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 7', 'user-7@example.com', '$2a$04$vG02dS9ErdqD5gzl0gFl9OQxi5lbKp/w8o1snVA1N7bk6UeQCDkEW', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 172816471)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 8', 'user-8@example.com', '$2a$04$D3/6UngvO21EUIDKr4smrOJYL5jE88OFC.9b0pZIZpmMwWOUhfM76', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 452191684)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 9', 'user-9@example.com', '$2a$04$0a2J4UDcXlUxO0WlCrt3XeTJLZLkeBEHmTNVD6Yaw3mgEf0N4APmm', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 771020115)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 10', 'user-10@example.com', '$2a$04$hfdIsFahRLHZOYPf2h/TauJ4YO5QK7Rp9yo/8PwnEh1dfkvkO00pu', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 956993830)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 11', 'user-11@example.com', '$2a$04$JFXZhPMdep7IpDLFuuOZ8.thzqsFcOsVP2gx9lYXPv2LI35loijpy', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 235774389)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 12', 'user-12@example.com', '$2a$04$WaYoR.IysdG/RyZvIMMET.iI3kbuf0ulayt2pb89RWDFFcNKHFZWi', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 386199561)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 13', 'user-13@example.com', '$2a$04$fBfSTuC8mD3v3ue8udLLkOxLuxK54jWDZF8vHzcVHxTpe3BH7OteG', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 537116830)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 14', 'user-14@example.com', '$2a$04$eDWh1h2WYW/5MmZFqUaDnufv/tEZV8Xok.m3lsO34gdwBOwKivNuS', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 1046959423)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 15', 'user-15@example.com', '$2a$04$aB.D1.a5a2aPMpQ2Z.xssehHQ2E95f5QQj5ZeyUi9z2A/QFH7e5Dq', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 157312430)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 16', 'user-16@example.com', '$2a$04$a2WW1t583aAJ0zLKFhdCjOzboVoazfawxg1ZSaiRuVEQjhhD9t54K', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 275330066)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 17', 'user-17@example.com', '$2a$04$/qXC1wnbVoNQB1s9U2YxX.8zSGC5U/tRYMX2vBZ36.LAZsN8Xq6wK', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 661521543)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 18', 'user-18@example.com', '$2a$04$VrOU1aPloeH2A0ghin9URun9t0k2dzZKJgiYt4uP1n4TH/.sePcBO', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 936450328)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 19', 'user-19@example.com', '$2a$04$OMLV4DiC0fm9Ly0ADGorr.FoFlOTjgI61XiZ6bw6AKdJP0P8xDq6O', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 14035331)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 20', 'user-20@example.com', '$2a$04$I5Ox/0594SksIVQl179Wv.jCWjru449BRbXS2qgN.veCITyA8tah6', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 304595689)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 21', 'user-21@example.com', '$2a$04$1g3kB21EAuUTTvywlwAb9e7P0dDwXyMRLBc0c1SBOqw33LpyJghUO', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 622916212)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 22', 'user-22@example.com', '$2a$04$lwQjM8u186VeN0TBIfKXeu7c.8DuUwT3Br9eHaXy64ZcrrT0HKKt6', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 1009361868)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 23', 'user-23@example.com', '$2a$04$CRfATvTjmSqqjk.p.NVCEuJWphIaQyD1I.scqQz8BNfOI81BORJoa', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 187601757)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 24', 'user-24@example.com', '$2a$04$Luv5/0jex5DXqH.nfrPVke89Q0xhrrjsVQkboWVsIpdd4PIQEtECi', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 357172992)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 25', 'user-25@example.com', '$2a$04$FFMlVqWn91h3QA6c1kvVIe6LY4CChLvDTrpAyJ5eOmoOyR1k/okhm', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 575485547)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 26', 'user-26@example.com', '$2a$04$qYjNAc3vRVOmQY0buAMofuncqrQvm/fgTgrivFAjSaeoim7JEgegG', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 994338771)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 27', 'user-27@example.com', '$2a$04$GtxqWMxxgX4.xaKKkayIG.noU0MVl3jkT4J8oDGJ3Am2nDx9pydxy', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 205739844)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 28', 'user-28@example.com', '$2a$04$2S.eVogSSTgSkcp7.ti5G..Ry4bkrtvs0zhqrnPPbwM0sQmIaZxEi', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 486296279)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 29', 'user-29@example.com', '$2a$04$MQrmBFpJtklO2wZeqCJHO.O5HNxwDcAVBAYff3WFxVBM.3NTzc8nO', 1, '2014-12-23 23:05:29', '2014-12-23 23:05:29', '2014-12-23 23:05:29', 737901126)[0m
+  [1m[35m (5.8ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+---------------------------------------
+UserMailerTest: test_account_activation
+---------------------------------------
+  [1m[36mUser Load (20.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 762146111 LIMIT 1[0m
+  Rendered user_mailer/account_activation.html.erb (4.7ms)
+  Rendered user_mailer/account_activation.text.erb (0.5ms)
+
+UserMailer#account_activation: processed outbound mail in 117.9ms
+  [1m[35m (11.9ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+-----------------------------------
+UserMailerTest: test_password_reset
+-----------------------------------
+
+UserMailer#password_reset: processed outbound mail in 35.9ms
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.3ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.2ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.5ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `admin`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('Michael Example', 'michael@example.com', '$2a$04$Jg6qzcg3MWnU4/jsfVCkqekrMj5Jz49LFuvlOaDvlgqYktgg86.Q.', 1, 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 762146111)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('Sterling Archer', 'duchess@example.gov', '$2a$04$DIjpTPDhlj8ROsV1yo77P.D8D8y05XLDcXTNSzuQe7WIn2lwIOKCi', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 950961012)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('Lana Kane', 'hands@example.gov', '$2a$04$GM22PW8xD8G1uDZzo1UsDe9aTgs7rBXmxrSwFwDA6iwxJ.J2Mk9Km', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 409608538)
+  [1m[36mFixture Insert (59.1ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('Mallory Archer', 'boss@example.gov', '$2a$04$Rwg2zByRCVthKV.fe0s7YuOhBXZ4R1Yqs3SwvOBy1EcWHyfB7q1O2', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 785162917)[0m
+  [1m[35mFixture Insert (0.6ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 0', 'user-0@example.com', '$2a$04$T/ibNuYgksL8u4vP7c8ZP.qBgFuk95jLDqZ5SlFMCiol4lrJQMgYa', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 338193910)
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 1', 'user-1@example.com', '$2a$04$gmYyJzoKKNR7G6bdtLNxCuA/QNQh8FXEOEVzgWIqyapYJQnMYfUgC', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 590306657)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 2', 'user-2@example.com', '$2a$04$zqEJFmorzBP46.q9HWZixOujP22UUXRiBdEBbTEh7w9LdshvrEgvO', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 975572189)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 3', 'user-3@example.com', '$2a$04$tuxU8MozYquKWI2GF0ZvlejK3LeixM.wbcSDW0OIrE1chPT/jzg.e', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 220281934)[0m
+  [1m[35mFixture Insert (0.8ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 4', 'user-4@example.com', '$2a$04$M0mV3FRjhGDyvUuF67t/IeLy6ofBuRm0P1r8E9sR5PdPrRACXVmuW', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 323332591)
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 5', 'user-5@example.com', '$2a$04$zIIAM3JFLOYvYTvxQjIqNuRY.x27npvT5VHvDY8lGAiWQJ8SiK/bi', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 608344442)[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 6', 'user-6@example.com', '$2a$04$SnfDjvity7kQxiH3sVNrGebLpK86OXsf05YUI.rIJqI3232Uhjzta', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 1028376774)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 7', 'user-7@example.com', '$2a$04$RkFrpetJ7xIl4s9IeQcFJu1L/Lz59qJcXjOgiyAJJp3PU61jIyhFW', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 172816471)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 8', 'user-8@example.com', '$2a$04$EZ7ZzbAsyHpkPhPBnjhIIuJH0HvV3nCTd.pl8NaJgLShW7Qd/6Elu', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 452191684)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 9', 'user-9@example.com', '$2a$04$RvKC2Ql8C/iGoZ9mTQzyOeI1X373pFk7wUHcSwAh/7YSVyAWUUQiO', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 771020115)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 10', 'user-10@example.com', '$2a$04$eTR15JiGKPo7hP6qjx2qGO1U207RbhG7OrqJwOIKm0v5ig/uklGXa', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 956993830)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 11', 'user-11@example.com', '$2a$04$/PX6gS.3dr0Gs9SzIuLv8eFp5q4.g3G84nexlrqUVrJxoRC/hPwVO', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 235774389)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 12', 'user-12@example.com', '$2a$04$13jqHw72B2/7IJ4nd8icdeyVOsBiXjAMdx8K5sVE3VBCz5gAFYTsG', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 386199561)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 13', 'user-13@example.com', '$2a$04$.oz7Yu/jlyHJqxGzsmLyAeS/aJDAdhNf48GWVCnpa1h1O745TdiIq', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 537116830)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 14', 'user-14@example.com', '$2a$04$BPQE8.rjlmNid6A/3SH6MO4fdEBp1B.uEVeL3A2KeH.TWK8OpRh6.', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 1046959423)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 15', 'user-15@example.com', '$2a$04$nuYGCqUPknBtTB6Hh/B9qeZDPW.yh1evv/pgQb3/rPChNSAwM3T72', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 157312430)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 16', 'user-16@example.com', '$2a$04$iaKjughaVEOAnoWG5vU0/O5D88lcnTaCpv/fg8RoZlFYbK7ZqoY.K', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 275330066)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 17', 'user-17@example.com', '$2a$04$wQ7NX0J5hGBTocvpj9aBkeQZi3xkhCyhjc1x2c2yjYSL06WgoAsjC', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 661521543)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 18', 'user-18@example.com', '$2a$04$TQrM3nu.gQYG1JaOVzHOL.e0snqlgYaKR258cw2DykI1Jmbe28Tiy', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 936450328)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 19', 'user-19@example.com', '$2a$04$7s9VD8rjVCugjaK/F1sp7eNqnPpDlrJX30uERPqMTVuJ.UQjxOdiO', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 14035331)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 20', 'user-20@example.com', '$2a$04$O71XQeQTZZf/CDlwVJX/IuFJS/mHWHT6PXj2F.VCe9r1odobtMbzS', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 304595689)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 21', 'user-21@example.com', '$2a$04$5PJGdfqebRElCHnX8zlQyudVubU6RrnCQfPanUeXbpB8/OGFUNmBy', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 622916212)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 22', 'user-22@example.com', '$2a$04$YzCIs8XDW4bRH7VYtoMFaO3cGiJWGpfowAWcvAXx21OBFJAbZLeoi', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 1009361868)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 23', 'user-23@example.com', '$2a$04$0tQW7OmKM36bS7NDwJQhZO98eM3Mo0cmMRIqVcOiX3CfaKuqLu7q6', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 187601757)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 24', 'user-24@example.com', '$2a$04$2ia6L0dZmVyfI243paAVpuL2RQ6rnrlVBwGeTv9KLQoqg7zuU2gwe', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 357172992)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 25', 'user-25@example.com', '$2a$04$sEEqfh3De4IM3kf80SyEG.nTCB4xC9Qpm7yKG27cInp9w.ZdH4qSC', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 575485547)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 26', 'user-26@example.com', '$2a$04$ehUAsZanNryAm5c8tlExbOn0kvhZsl4z6fwYiGIYhulWLUXbpd9km', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 994338771)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 27', 'user-27@example.com', '$2a$04$qhakFwr9ytYSKJv.lq7ree1PQDGSKIheO1PU5trJx1nY5rjYNeAZO', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 205739844)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 28', 'user-28@example.com', '$2a$04$sxDdoSVYpyxwdht9K0U/SuFIoR465aNG0q0eCzz8NjNwcnSSxI5yS', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 486296279)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 29', 'user-29@example.com', '$2a$04$znvLiEZ3.Ea0kRkLTd.CY.Q3auedriyghZpDrDNwaSJqiMRmn1Ss6', 1, '2014-12-23 23:33:30', '2014-12-23 23:33:30', '2014-12-23 23:33:30', 737901126)[0m
+  [1m[35m (55.9ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (597.9ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (10.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 5600ms (Views: 5599.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------------
+UsersSignupTest: test_invalid_signup_information
+------------------------------------------------
+Started GET "/signup" for 127.0.0.1 at 2014-12-23 23:33:36 +0000
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (20.8ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 127ms (Views: 76.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (28.9ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+Started POST "/users" for 127.0.0.1 at 2014-12-23 23:33:36 +0000
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"", "email"=>"user@invalid", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (5.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@invalid' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered shared/_error_messages.html.erb (3.5ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 70ms (Views: 8.4ms | ActiveRecord: 6.2ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------------------------
+UsersSignupTest: test_valid_signup_information
+----------------------------------------------
+Started GET "/signup" for 127.0.0.1 at 2014-12-23 23:33:36 +0000
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `users`
+Started POST "/users" for 127.0.0.1 at 2014-12-23 23:33:36 +0000
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`activation_digest`, `created_at`, `email`, `name`, `password_digest`, `updated_at`) VALUES ('$2a$04$Xo1r7iFYmRsjiqZkSA9Hc.vbqPoiyzDm7z22Tc.G.cuk2D9NjOM1i', '2014-12-23 23:33:36', 'user@example.com', 'Example User', '$2a$04$37.gWx2NgS4oknDA/9UoiuzA37KAn4oz5kMb9W9U3ZfRh13nlv2ie', '2014-12-23 23:33:36')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+UserMailer#account_activation: processed outbound mail in 327.3ms
+
+Sent mail to user@example.com (63.9ms)
+Date: Tue, 23 Dec 2014 23:33:37 +0000
+From: noreply@example.com
+To: user@example.com
+Message-ID: <5499fbd15cd2c_b2753ff7c145e4647993c@MacBook-Pro.local.mail>
+Subject: Account activation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5499fbd14ec11_b2753ff7c145e46479823";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5499fbd14ec11_b2753ff7c145e46479823
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi Example User,
+
+Welcome to the Sample App! Click on the link below to activate your account:
+
+http://localhost:3000/account_activations/jJdj5Ot-jciUlr_K7yl3Ow/edit?email=user%40example.com
+----==_mimepart_5499fbd14ec11_b2753ff7c145e46479823
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h1>Sample App</h1>
+
+<p>Hi Example User,</p>
+
+<p>
+Welcome to the Sample App! Click on the link below to activate your account:
+</p>
+
+<a href="http://localhost:3000/account_activations/jJdj5Ot-jciUlr_K7yl3Ow/edit?email=user%40example.com">Activate</a>
+----==_mimepart_5499fbd14ec11_b2753ff7c145e46479823--
+
+Redirected to http://www.example.com/
+Completed 302 Found in 423ms (ActiveRecord: 1.1ms)
+Started GET "/" for 127.0.0.1 at 2014-12-23 23:33:37 +0000
+Processing by StaticPagesController#home as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 25ms (Views: 23.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+  [1m[35m (10.6ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------------------------------------------------------
+UserTest: test_authenticated?_should_return_false_for_a_user_with_nil_digest
+----------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+-----------------------------------------------
+UserTest: test_email_addresses_should_be_unique
+-----------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`activation_digest`, `created_at`, `email`, `name`, `password_digest`, `updated_at`) VALUES ('$2a$04$i.a.tc1vyeVqwLwx3QEBEeha/5aECU5Psqx1sAf8P.0ecCzr/7ZP2', '2014-12-23 23:33:37', 'user@example.com', 'Example User', '$2a$04$nhIpogz8TNwTGZyF7nV8ZevabNCi1EnCQcq3iVl77f20xlV20ECRu', '2014-12-23 23:33:37')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'USER@EXAMPLE.COM' LIMIT 1
+  [1m[36m (12.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------------
+UserTest: test_email_should_be_present
+--------------------------------------
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+-------------------------------------------------------------
+UserTest: test_email_validation_should_accept_valid_addresses
+-------------------------------------------------------------
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'USER@foo.COM' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'A_US-ER@foo.bar.org' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'first.last@foo.jp' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'alice+bob@baz.cn' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-------------------------------------
+UserTest: test_name_should_be_present
+-------------------------------------
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------------------------------
+UserTest: test_password_should_have_a_minimum_length
+----------------------------------------------------
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------
+UserTest: test_should_be_valid
+------------------------------
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------------
+UsersLoginTest: test_login_with_invalid_information
+---------------------------------------------------
+Started GET "/login" for 127.0.0.1 at 2014-12-23 23:33:37 +0000
+Processing by SessionsController#new as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2014-12-23 23:33:37 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`email` = '' LIMIT 1
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 67ms (Views: 5.4ms | ActiveRecord: 0.5ms)
+Started GET "/" for 127.0.0.1 at 2014-12-23 23:33:37 +0000
+Processing by StaticPagesController#home as HTML
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------
+UserMailerTest: test_account_activation
+---------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 762146111 LIMIT 1[0m
+
+UserMailer#account_activation: processed outbound mail in 2.6ms
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+-----------------------------------
+UserMailerTest: test_password_reset
+-----------------------------------
+
+UserMailer#password_reset: processed outbound mail in 0.2ms
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------------------------
+StaticPagesControllerTest: test_should_get_contact
+--------------------------------------------------
+Processing by StaticPagesController#contact as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+-----------------------------------------------
+StaticPagesControllerTest: test_should_get_help
+-----------------------------------------------
+Processing by StaticPagesController#help as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+-----------------------------------------------
+StaticPagesControllerTest: test_should_get_home
+-----------------------------------------------
+Processing by StaticPagesController#home as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.6ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mFixture Delete (17.7ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (0.6ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `admin`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('Michael Example', 'michael@example.com', '$2a$04$rvdvEBYAaXRdXflu/MAiMOyyfR4qmwgvpy63CsWHDmAoKXA2OU92W', 1, 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 762146111)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('Sterling Archer', 'duchess@example.gov', '$2a$04$asp5/zX/wvG96iJlo/mlSuJzOCMCD3pAwGkIvzdr7rgXRY6/VgwNK', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 950961012)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('Lana Kane', 'hands@example.gov', '$2a$04$IaCdOO3gj8WWUd33p1sFwemF5K94jqpxjxVDgnbzlnC804rUe9/PG', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 409608538)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('Mallory Archer', 'boss@example.gov', '$2a$04$.wgtJBrrD04kktGKKMk7VOgCSiSFANes7VnoHqBo77shOdiSopEh6', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 785162917)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 0', 'user-0@example.com', '$2a$04$4OSBTRPySOx/NNZwYWSRHuG0LUAyL0U239RNKiqJBVnZ38IoL3Wby', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 338193910)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 1', 'user-1@example.com', '$2a$04$gj./tUWgNriMOShbgBi8MOuEvs3tvvHEkciRpxdI3M4x3QCfwLYhO', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 590306657)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 2', 'user-2@example.com', '$2a$04$o1a4x1bL3nMjtF.8NpHMeuW7FSoe/MUaauMb6L2369vEfuPu/w01q', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 975572189)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 3', 'user-3@example.com', '$2a$04$noAMh/yPQrOOlj3zScQtFe1ltNs8O2TzaK/VdHPO292QXu6lbYRLa', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 220281934)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 4', 'user-4@example.com', '$2a$04$Nfa7xdyYMfnabn1Y.axvC.YFlmLpri6MzbDXahzQgPtRa6bYYkmuK', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 323332591)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 5', 'user-5@example.com', '$2a$04$UG5ICaAxoeq9Dp5BoopnDOfHgBzoCI/WrZABDcyAsjbDA8kD2H2z6', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 608344442)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 6', 'user-6@example.com', '$2a$04$RnCyYjYtrTyPPRpE964AtOCKnnCfZvnOeQRYbRbIOcuHY8oz.J12G', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 1028376774)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 7', 'user-7@example.com', '$2a$04$z83ATzBwpJzrws7zPRjN/eBLRj05ODkUrXobBxNemDHD15zq1gKfm', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 172816471)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 8', 'user-8@example.com', '$2a$04$JO5ya7mHUqjL7OE3RNK/e.kXWYzOTRR0TVZVMGLJOu2ZBn5qRpJEW', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 452191684)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 9', 'user-9@example.com', '$2a$04$1lR/uABYiCGbnaDfjbDi6Oso76HM2hDSoUfK5yuEifRA8UzYzT.km', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 771020115)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 10', 'user-10@example.com', '$2a$04$Q03V0wZAeSTMiO1Me.GOvegNnyBJTztIkDAftndhUZmMOivBPeJOK', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 956993830)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 11', 'user-11@example.com', '$2a$04$OZhXIZ7BbvfWf1jEW81ppOQD9QVJUncX0xfZuq9jPoQJvA0JK3LYu', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 235774389)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 12', 'user-12@example.com', '$2a$04$VIARRlkBZKYkzFXSlzFQ2.teBJNkLQaqdVUcBq88a2CTwPzAYdGwi', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 386199561)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 13', 'user-13@example.com', '$2a$04$Zz.uNAbtlBpCj6XgikV1a.pv4iVq1HXUGPaf80Vdqcr2eURv7n552', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 537116830)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 14', 'user-14@example.com', '$2a$04$887fellzCIxe5rpyHY/ujuir/qs3rHmlIaLCZdvd0TFy.kebUactm', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 1046959423)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 15', 'user-15@example.com', '$2a$04$PLk5FCcYP/WXvk30j35xeejlPKD4KeGY0jbiq/A/aGtiF8JNPkxgO', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 157312430)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 16', 'user-16@example.com', '$2a$04$VLDQPBJsr4lXv4.N09wTv.ALytIwaTTZsjlJgcgc.QTLL4v9vR5Ty', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 275330066)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 17', 'user-17@example.com', '$2a$04$EjacPthnvI2qqh6vc8RUueugLcZBuV6H318DDS81uZWaf23OkDS.2', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 661521543)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 18', 'user-18@example.com', '$2a$04$xR0Nr1nM2tH42HY3xBaSweFPp6bbZZwEssUfcVUNfp6V.lyYcfFo6', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 936450328)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 19', 'user-19@example.com', '$2a$04$Fhutnr.Gbu/H3R3x54Y0TeDdEjwXeRy4v31kVaoXcLFGdcnpnIdOO', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 14035331)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 20', 'user-20@example.com', '$2a$04$FVNRbNMpiQHj9u1iXp3AxO4enpL1RCelu4fMbowJl8FdXJG3GERmK', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 304595689)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 21', 'user-21@example.com', '$2a$04$10Y5OH9w6DDaH4Z64QGK9OUAAKX/SkwhJiw3BAdFp/OhagNr5Y1Eu', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 622916212)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 22', 'user-22@example.com', '$2a$04$WQIXUMtY3IOEB.MpAClozuwYCtSkZkkOF8aj0z7VrMfjCPaTrddu2', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 1009361868)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 23', 'user-23@example.com', '$2a$04$/N1Js9oTxQMKky9zwswKjOmFIrS/FXWnvPYnrLtCEkKMEfwOQCTZO', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 187601757)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 24', 'user-24@example.com', '$2a$04$ZzRKXiXuL/VlmQXlwThH6OhLhQEgmrP6i0nG9Z/e9tGMSOWLJ0lOu', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 357172992)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 25', 'user-25@example.com', '$2a$04$B2IiSpvauDDgHgxgNXQbU.DJCOvhkH1VSlCk4yk66XoBy6EV.ruy.', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 575485547)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 26', 'user-26@example.com', '$2a$04$QqY.MR86Uz51qRC8e3JgmeoR0/kU8ZXQBBWL3.brMQU/WMWtA77ya', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 994338771)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 27', 'user-27@example.com', '$2a$04$1AXmmmF5YGphf/hReEqF2e5musqaZtxxZU8KA/Y2tTRlO469Y6hoq', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 205739844)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 28', 'user-28@example.com', '$2a$04$N6K.wL90C53cGVlqUzCOY.XExv5F37xKPoQVOIlb09aR9mJyrpF8G', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 486296279)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 29', 'user-29@example.com', '$2a$04$I7zcYja0wHwl2WJ5YONm1ujcsjQFvM915OOBukI4OVTuPuGy66AES', 1, '2014-12-23 23:35:27', '2014-12-23 23:35:27', '2014-12-23 23:35:27', 737901126)[0m
+  [1m[35m (1.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+---------------------------------------------------
+UsersLoginTest: test_login_with_invalid_information
+---------------------------------------------------
+Started GET "/login" for 127.0.0.1 at 2014-12-23 23:35:27 +0000
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (373.8ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (10.4ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 484ms (Views: 462.9ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2014-12-23 23:35:28 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`email` = '' LIMIT 1[0m
+  Rendered sessions/new.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 13ms (Views: 5.4ms | ActiveRecord: 0.5ms)
+Started GET "/" for 127.0.0.1 at 2014-12-23 23:35:28 +0000
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------------------------
+StaticPagesControllerTest: test_should_get_contact
+--------------------------------------------------
+Processing by StaticPagesController#contact as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+-----------------------------------------------
+StaticPagesControllerTest: test_should_get_help
+-----------------------------------------------
+Processing by StaticPagesController#help as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+-----------------------------------------------
+StaticPagesControllerTest: test_should_get_home
+-----------------------------------------------
+Processing by StaticPagesController#home as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------------------------------------------------------
+UserTest: test_authenticated?_should_return_false_for_a_user_with_nil_digest
+----------------------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+-----------------------------------------------
+UserTest: test_email_addresses_should_be_unique
+-----------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`activation_digest`, `created_at`, `email`, `name`, `password_digest`, `updated_at`) VALUES ('$2a$04$ojF9/yA6cPa07oEHgf.Pv.hskTfm1LCh0ihtB9ojkdAecawjVWqo.', '2014-12-23 23:35:28', 'user@example.com', 'Example User', '$2a$04$PslDFBoN8BgTcgKN90lLDu9Trdfik5xOAhJxqI.VJxo6nBUnrSMja', '2014-12-23 23:35:28')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'USER@EXAMPLE.COM' LIMIT 1
+  [1m[36m (0.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------------
+UserTest: test_email_should_be_present
+--------------------------------------
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+-------------------------------------------------------------
+UserTest: test_email_validation_should_accept_valid_addresses
+-------------------------------------------------------------
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'USER@foo.COM' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'A_US-ER@foo.bar.org' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'first.last@foo.jp' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'alice+bob@baz.cn' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+-------------------------------------
+UserTest: test_name_should_be_present
+-------------------------------------
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------------------------------
+UserTest: test_password_should_have_a_minimum_length
+----------------------------------------------------
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------
+UserTest: test_should_be_valid
+------------------------------
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+Processing by SessionsController#new as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+------------------------------------------------
+UsersSignupTest: test_invalid_signup_information
+------------------------------------------------
+Started GET "/signup" for 127.0.0.1 at 2014-12-23 23:35:28 +0000
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (0.4ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `users`
+Started POST "/users" for 127.0.0.1 at 2014-12-23 23:35:28 +0000
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"", "email"=>"user@invalid", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@invalid' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered shared/_error_messages.html.erb (3.3ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 19ms (Views: 7.7ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `users`
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+----------------------------------------------
+UsersSignupTest: test_valid_signup_information
+----------------------------------------------
+Started GET "/signup" for 127.0.0.1 at 2014-12-23 23:35:28 +0000
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+Started POST "/users" for 127.0.0.1 at 2014-12-23 23:35:28 +0000
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`activation_digest`, `created_at`, `email`, `name`, `password_digest`, `updated_at`) VALUES ('$2a$04$B6jkbvzb0d63JKeITKmrq.nxrRb80XCvtTnsQBSDBFBEQFuOOBJim', '2014-12-23 23:35:28', 'user@example.com', 'Example User', '$2a$04$HcyA2YHzYXl2bBoyHIQ1YOvxUUYv/DSgLOGwYSSzNUJ.PlGNql1Fa', '2014-12-23 23:35:28')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+UserMailer#account_activation: processed outbound mail in 228.6ms
+
+Sent mail to user@example.com (6.4ms)
+Date: Tue, 23 Dec 2014 23:35:28 +0000
+From: noreply@example.com
+To: user@example.com
+Message-ID: <5499fc40b535e_b3653fd9f9c5e4608893b@MacBook-Pro.local.mail>
+Subject: Account activation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5499fc40b41d5_b3653fd9f9c5e4608889d";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5499fc40b41d5_b3653fd9f9c5e4608889d
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi Example User,
+
+Welcome to the Sample App! Click on the link below to activate your account:
+
+http://localhost:3000/account_activations/fxc85wZDpUSNvJOr1Orz-g/edit?email=user%40example.com
+----==_mimepart_5499fc40b41d5_b3653fd9f9c5e4608889d
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h1>Sample App</h1>
+
+<p>Hi Example User,</p>
+
+<p>
+Welcome to the Sample App! Click on the link below to activate your account:
+</p>
+
+<a href="http://localhost:3000/account_activations/fxc85wZDpUSNvJOr1Orz-g/edit?email=user%40example.com">Activate</a>
+----==_mimepart_5499fc40b41d5_b3653fd9f9c5e4608889d--
+
+Redirected to http://www.example.com/
+Completed 302 Found in 250ms (ActiveRecord: 0.7ms)
+Started GET "/" for 127.0.0.1 at 2014-12-23 23:35:28 +0000
+Processing by StaticPagesController#home as HTML
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `users`
+  [1m[36m (1.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+---------------------------------------
+UserMailerTest: test_account_activation
+---------------------------------------
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 762146111 LIMIT 1[0m
+
+UserMailer#account_activation: processed outbound mail in 4.1ms
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+-----------------------------------
+UserMailerTest: test_password_reset
+-----------------------------------
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (49.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.4ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.2ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mFixture Delete (113.2ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (10.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `admin`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('Michael Example', 'michael@example.com', '$2a$04$UZ8AzGH1kWZdsUYoOykCn.n2DzhtmYcg5r9ms8t0Apwj7Q/KX45D6', 1, 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 762146111)
+  [1m[36mFixture Insert (0.6ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('Sterling Archer', 'duchess@example.gov', '$2a$04$OofkIzhtjhwqX1QpXYh2sebdUP.ohwJ4wxBXilR0.AyCUtEATfu7.', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 950961012)[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('Lana Kane', 'hands@example.gov', '$2a$04$4tkdm3vBBc9i5U77z3kp8uEPEOWCIHq6zfhpaqgPTuTNkUjyNY9cm', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 409608538)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('Mallory Archer', 'boss@example.gov', '$2a$04$OXhproEWhUjgeD.b6TrBK..wRE1FwPcSQX8FoP1BEAyrlBCgBh9Ga', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 785162917)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 0', 'user-0@example.com', '$2a$04$gJifXLYsWLMJgQ/Qaqb2ROFuSydK/PZkOCBuxxn945LNJvP8Bxgs6', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 338193910)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 1', 'user-1@example.com', '$2a$04$R07WsFrnxnpsqVor134X9eyf0WktWYvC9VgrbGiuw2WJwFq0H61qi', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 590306657)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 2', 'user-2@example.com', '$2a$04$AjB4.ZTyt7EfuplrQ1ROReIJau4qo6c2BvW7PIPA1vwD2Ooqu0MjS', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 975572189)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 3', 'user-3@example.com', '$2a$04$auvdloIAc/LFhm2dIVnnLeU3fophiRakmBWJMy4UmfHxHumWFdO8S', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 220281934)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 4', 'user-4@example.com', '$2a$04$3W.m3BS.yKUBXuMj73T80OMDbwxekGa.MlMSkS.L53q54I13tg2Bu', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 323332591)
+  [1m[36mFixture Insert (1.0ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 5', 'user-5@example.com', '$2a$04$Yq9mBvmXtQJWQCD2zlBB.erL5fyWI7vlbmJSRZ5GGmKhInlJbKB.G', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 608344442)[0m
+  [1m[35mFixture Insert (0.6ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 6', 'user-6@example.com', '$2a$04$aTOAXXA3q.5G7txr6x5ysOgFvKi5A8um0lzgWwJfoq9FTBm2w2JaG', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 1028376774)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 7', 'user-7@example.com', '$2a$04$CdeqQyYLwMdD.bP.BcrsdOWHM.sHLRoCrcGFvWuaEXeVnpeRJJjzC', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 172816471)[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 8', 'user-8@example.com', '$2a$04$XOytN.2kjt67Kc6UeLK49uKeHieXhpfzj4CkllPZZMOAcWAOVSu8q', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 452191684)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 9', 'user-9@example.com', '$2a$04$A4XxDG72r/7JktQc1T4SmOiTUNxydQjS6FRaYEuiOxIhwzJD877CG', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 771020115)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 10', 'user-10@example.com', '$2a$04$PTyBYoQ3gQ8DMYJzaQ4Cy.kaEp5aSYoXsLNW98EreIEf.owFgnYQ6', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 956993830)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 11', 'user-11@example.com', '$2a$04$ffxHIUPbkNCO.ms4epf39.FJHdyAiVrN6GDDDDA9Mwwzc20vdKEre', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 235774389)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 12', 'user-12@example.com', '$2a$04$Wet.aIDQAHB3yUZ5FOvD9esNBpv/V4R99Ea1FPofdKELNpJrRRh5S', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 386199561)
+  [1m[36mFixture Insert (0.7ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 13', 'user-13@example.com', '$2a$04$D50K.afSr0IYGOS9Ab8zPOPkDgTHXGB/xk9YUF9EqWzyo60lyyQqO', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 537116830)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 14', 'user-14@example.com', '$2a$04$v.TMizlyQ1RXQ/FX5Ny4heQCNvAMLrWDfKpaKTnVAnbL6XhQzGA8u', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 1046959423)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 15', 'user-15@example.com', '$2a$04$Za8ufvHOuNQ8y6yo2NbzUeTU7c53wyq4JeW0bbPfYUWt6NtNdi70e', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 157312430)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 16', 'user-16@example.com', '$2a$04$SJJMjfXU1vNXK51RxUgt0uzMYsy6MsxDA9RzQo9kRU49G6gqcW1nG', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 275330066)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 17', 'user-17@example.com', '$2a$04$G/kUsN6n0FvBX5i8dw/rjOkvYTGCXsAmCFCvWogwARW.DOtcG/9qS', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 661521543)[0m
+  [1m[35mFixture Insert (12.0ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 18', 'user-18@example.com', '$2a$04$v7GG5RD4tXOcwxelxGOAMOSHDgBfQU4lb.Apsf7a.9k9/ZWG4kHhO', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 936450328)
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 19', 'user-19@example.com', '$2a$04$qm5ZpObfWkmzqFD0Cn/YHeHxEmdsJiWVHOmrxV3m7CWFkYgjKeiWO', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 14035331)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 20', 'user-20@example.com', '$2a$04$O201BlLmQySQEiOLZK7.Vut2WKRu7Czu.yuZqfpK9CkGaVFKkT0n.', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 304595689)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 21', 'user-21@example.com', '$2a$04$NCFcuZgJHR1t6MMlKW94sOX9BNLPF0Bol.amkoEbXsweJl.xvpimy', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 622916212)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 22', 'user-22@example.com', '$2a$04$fWwdfGFO2trAgHZvA8gwIuyDs5WRPMt9Z0geeXmXGnQT3/yQ8Bi/W', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 1009361868)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 23', 'user-23@example.com', '$2a$04$qs5cUuzlhKWpA5xvNV6T3O0Et4UZj8yXRiakV37BS3MdYMQphCwDe', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 187601757)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 24', 'user-24@example.com', '$2a$04$mCN4cSLytIMLbrWoNSHtqu2jLBsTL7bGbph2w7urDwiZOBPF1QvnW', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 357172992)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 25', 'user-25@example.com', '$2a$04$ubf0e4hboHx2UNqLO.aV2el2tQ.AnKbiyHmBPPWBxVJDN0FRXSmrW', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 575485547)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 26', 'user-26@example.com', '$2a$04$7iYyAcknQx4uDM3mBx0uTe.tkjLr7Sp/e0lm21bAoNcZpCEaCE8W6', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 994338771)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 27', 'user-27@example.com', '$2a$04$vIXZLzA5NVA3wVALZXSILe2.AAvA5MX8d9f6f1oO4XSKOe.4ACe1i', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 205739844)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 28', 'user-28@example.com', '$2a$04$cWWhRltIMMFXygRLXoX17efjvePRQf5NgEpw6DmTD6sO3VZkPNnmW', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 486296279)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 29', 'user-29@example.com', '$2a$04$SiIacGBW3kvONLvBRnHj8ualnewJMryGGoqrHtWPeX44hA6zD7WbK', 1, '2014-12-24 18:36:46', '2014-12-24 18:36:46', '2014-12-24 18:36:46', 737901126)[0m
+  [1m[35m (65.8ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+------------------------------------------------
+UsersSignupTest: test_invalid_signup_information
+------------------------------------------------
+Started GET "/signup" for 127.0.0.1 at 2014-12-24 18:36:46 +0000
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (21.1ms)
+  Rendered users/new.html.erb within layouts/application (735.3ms)
+  Rendered layouts/_shim.html.erb (1.0ms)
+  Rendered layouts/_header.html.erb (15.8ms)
+  Rendered layouts/_footer.html.erb (1.9ms)
+Completed 200 OK in 1361ms (Views: 1301.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+Started POST "/users" for 127.0.0.1 at 2014-12-24 18:36:48 +0000
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"", "email"=>"user@invalid", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@invalid' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered shared/_error_messages.html.erb (3.8ms)
+  Rendered users/new.html.erb within layouts/application (7.6ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 68ms (Views: 10.1ms | ActiveRecord: 1.0ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------------------------
+UsersSignupTest: test_valid_signup_information
+----------------------------------------------
+Started GET "/signup" for 127.0.0.1 at 2014-12-24 18:36:48 +0000
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `users`
+Started POST "/users" for 127.0.0.1 at 2014-12-24 18:36:48 +0000
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`activation_digest`, `created_at`, `email`, `name`, `password_digest`, `updated_at`) VALUES ('$2a$04$ZBXMPBmYrfX1QpW5LI1YpuVox.sfOiz8r8klfEZkkl8VY0y.6gk2e', '2014-12-24 18:36:48', 'user@example.com', 'Example User', '$2a$04$NkGSP9aWllewUywwBGP4teTRqzjo/UdmPLDJou3jIr5CivL9W/.cq', '2014-12-24 18:36:48')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+UserMailer#account_activation: processed outbound mail in 426.9ms
+
+Sent mail to user@example.com (25.0ms)
+Date: Wed, 24 Dec 2014 18:36:49 +0000
+From: noreply@example.com
+To: user@example.com
+Message-ID: <549b07c18ca9_121473fcca685246c78564@MacBook-Pro.local.mail>
+Subject: Account activation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_549b07c13cde_121473fcca685246c78443";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_549b07c13cde_121473fcca685246c78443
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi Example User,
+
+Welcome to the Sample App! Click on the link below to activate your account:
+
+http://localhost:3000/account_activations/N2tYEdDcjoOOqI_xDScfXA/edit?email=user%40example.com
+----==_mimepart_549b07c13cde_121473fcca685246c78443
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h1>Sample App</h1>
+
+<p>Hi Example User,</p>
+
+<p>
+Welcome to the Sample App! Click on the link below to activate your account:
+</p>
+
+<a href="http://localhost:3000/account_activations/N2tYEdDcjoOOqI_xDScfXA/edit?email=user%40example.com">Activate</a>
+----==_mimepart_549b07c13cde_121473fcca685246c78443--
+
+Redirected to http://www.example.com/
+Completed 302 Found in 484ms (ActiveRecord: 0.7ms)
+Started GET "/" for 127.0.0.1 at 2014-12-24 18:36:49 +0000
+Processing by StaticPagesController#home as HTML
+  Rendered layouts/_shim.html.erb (0.2ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 23ms (Views: 22.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+  [1m[35m (16.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+---------------------------------------
+UserMailerTest: test_account_activation
+---------------------------------------
+  [1m[35mUser Load (0.6ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 762146111 LIMIT 1
+
+UserMailer#account_activation: processed outbound mail in 4.3ms
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------
+UserMailerTest: test_password_reset
+-----------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 762146111 LIMIT 1[0m
+
+UserMailer#password_reset: processed outbound mail in 25.1ms
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------------
+UsersLoginTest: test_login_with_invalid_information
+---------------------------------------------------
+Started GET "/login" for 127.0.0.1 at 2014-12-24 18:36:49 +0000
+Processing by SessionsController#new as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 43ms (Views: 42.3ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2014-12-24 18:36:49 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`email` = '' LIMIT 1
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 38ms (Views: 5.2ms | ActiveRecord: 0.6ms)
+Started GET "/" for 127.0.0.1 at 2014-12-24 18:36:49 +0000
+Processing by StaticPagesController#home as HTML
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------------------------------------------------
+UserTest: test_authenticated?_should_return_false_for_a_user_with_nil_digest
+----------------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------------
+UserTest: test_email_addresses_should_be_unique
+-----------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`activation_digest`, `created_at`, `email`, `name`, `password_digest`, `updated_at`) VALUES ('$2a$04$CI3ptkWjPatId.473Qvmre5dKawaZySY.YJ26p0DjyC5IurB0mTaS', '2014-12-24 18:36:49', 'user@example.com', 'Example User', '$2a$04$B/Sldirc6yCISerjEcDmHeg2Iz2tiLgkMRC70VBN37V25hAMspBmu', '2014-12-24 18:36:49')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'USER@EXAMPLE.COM' LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+--------------------------------------
+UserTest: test_email_should_be_present
+--------------------------------------
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-------------------------------------------------------------
+UserTest: test_email_validation_should_accept_valid_addresses
+-------------------------------------------------------------
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'USER@foo.COM' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'A_US-ER@foo.bar.org' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'first.last@foo.jp' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'alice+bob@baz.cn' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+-------------------------------------
+UserTest: test_name_should_be_present
+-------------------------------------
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------------------------
+UserTest: test_password_should_have_a_minimum_length
+----------------------------------------------------
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------
+UserTest: test_should_be_valid
+------------------------------
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+Processing by SessionsController#new as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------
+StaticPagesControllerTest: test_should_get_contact
+--------------------------------------------------
+Processing by StaticPagesController#contact as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 17ms (Views: 16.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------------
+StaticPagesControllerTest: test_should_get_help
+-----------------------------------------------
+Processing by StaticPagesController#help as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 16ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+-----------------------------------------------
+StaticPagesControllerTest: test_should_get_home
+-----------------------------------------------
+Processing by StaticPagesController#home as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 3ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (26.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (9.6ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mFixture Delete (130.3ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (63.9ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `admin`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('Michael Example', 'michael@example.com', '$2a$04$U4P4r/XHuaroBTWCiGB/sePy43/s4Z0GYxDL6HVgeGZqYgHNDpBdm', 1, 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 762146111)
+  [1m[36mFixture Insert (0.6ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('Sterling Archer', 'duchess@example.gov', '$2a$04$C8XUvz/fYRqLi4EAKBngBO99eSC4siXT0F.4KpduEObDLkjnzy3Tu', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 950961012)[0m
+  [1m[35mFixture Insert (0.6ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('Lana Kane', 'hands@example.gov', '$2a$04$B6oZKVRhOpyOWBLxPyE92.T0z/w6rYBGnb2.TZn8.SJjB9qH6HUyW', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 409608538)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('Mallory Archer', 'boss@example.gov', '$2a$04$jugEz.K/WT.OCG2WGuwpVe4X6Y4KDsERfE47BTxwX4SDBYljvTlMS', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 785162917)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 0', 'user-0@example.com', '$2a$04$78.tdWOtMlrRXJeGms/XT.gjyclrNwCYzsBTHgcpdjuSUy9oJnTjW', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 338193910)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 1', 'user-1@example.com', '$2a$04$IxFxve1vYqGID7T.R1/KDeptWTKW13soIhsqk20XpgY72wugaE8G6', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 590306657)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 2', 'user-2@example.com', '$2a$04$BLkzLaWMkpJTJrG748bpy.lup2xgJMXPHlpeBsJkUHDfOcxJxxJ.S', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 975572189)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 3', 'user-3@example.com', '$2a$04$yE.MYmQKk2JCU9hhW4igxOz50rsnEYizoUtDctQwtDkU6uxFsDDNG', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 220281934)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 4', 'user-4@example.com', '$2a$04$oWcQkKg4iEHWcDCztXQNEuB3/pFSc6ThbRViAVOONAFxLDuWev3tS', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 323332591)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 5', 'user-5@example.com', '$2a$04$bQ236APeVH8dVnrviYf1BuJvjmzNrepyOiN3tonpB2PYJGS0czli2', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 608344442)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 6', 'user-6@example.com', '$2a$04$A.I5tcisFESS1ZmXxS0i/.IlBP6pA.sQY6PacoChEoOrHhgdjqqL.', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 1028376774)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 7', 'user-7@example.com', '$2a$04$aRPlrkI/g4Ak026o5Vg/F.h7QP8eDfCOyTMIv0dWxujSxx3Zk4/ou', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 172816471)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 8', 'user-8@example.com', '$2a$04$E9DMMip0coBo9ZQqvv6Pbu038Fa1xmtROoQa/et9bHGJtS0uAoaf2', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 452191684)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 9', 'user-9@example.com', '$2a$04$76gP9F58qRbyrL1SYdls3O2Qph5/C7khsUBWM/.XesDtPFamfnxr6', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 771020115)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 10', 'user-10@example.com', '$2a$04$E.FDEZX2wjhTl8TGOtSZmulW.V62kZ7YZ8G6z4Q1bQraPF98ONT1.', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 956993830)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 11', 'user-11@example.com', '$2a$04$yWffecfEpAjRZvMFC6Rmz.6slvKwIh8tSNXxlp1hkZUPmuuXaLx86', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 235774389)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 12', 'user-12@example.com', '$2a$04$Vc.0qBEqF1lXid7oGNmateMIfn8JmLitYGRxFNmZr4gbxmi83v0Iq', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 386199561)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 13', 'user-13@example.com', '$2a$04$D/PPwN1zQc5sJKsuNGkGjuCyRtkyArXic27NxD6WsBigoPkuBQ9tm', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 537116830)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 14', 'user-14@example.com', '$2a$04$VJMbzDxF4c0axZtalO6ubOXuK.XtOqrdChrDLaeA0CCKOoLrmw3Ty', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 1046959423)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 15', 'user-15@example.com', '$2a$04$MZ73M.9yfZZATp6QAlxo5OmAbd.GmRNwcjmhDELJJrKVHy7t21GQ6', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 157312430)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 16', 'user-16@example.com', '$2a$04$8nvGSozmzfRIiw4S6mgJreG6doKtRW4yRLwmxEpVMNhwhG0z6g64y', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 275330066)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 17', 'user-17@example.com', '$2a$04$xriSq3f3.6htuycnhjGLd.CRborngZESt2eo3R8NbMygbO8rud8ai', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 661521543)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 18', 'user-18@example.com', '$2a$04$GuPo69wA2F6/m4nucfwhRuwoEZiQi92TKTtQyeFqGuoECQVTp36xS', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 936450328)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 19', 'user-19@example.com', '$2a$04$aY2LyTmCtrgR2NOMpBwu3Oku25Zb2i2ZJsWQNhsyhr7ohDqBQPbpi', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 14035331)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 20', 'user-20@example.com', '$2a$04$lpdMi29.E.FOeLXKCSSiTeQgc6JVTZ5k57dOh.DmJZMmGs/mHLB2i', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 304595689)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 21', 'user-21@example.com', '$2a$04$Fi/RyUyewcBP5gJE48tYHeMVjfiJBpfelTr3/iob8eJPtENc0qxau', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 622916212)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 22', 'user-22@example.com', '$2a$04$ySW.z2MOfzsunUkiprMmCujusQFXwws9Hk9AuKPobUhsR3idS0LVW', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 1009361868)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 23', 'user-23@example.com', '$2a$04$baeVPihOfM6uRsJ8cr/tkeZF5nE5K9ww3WE5HUiMwUyYCl5WPiSn2', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 187601757)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 24', 'user-24@example.com', '$2a$04$uLCZFoK0dvy.kbnOXCDnzuLPhamcXSHI1JZoOo2oZQ/MMQesDXiCu', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 357172992)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 25', 'user-25@example.com', '$2a$04$1vMV3GXaIbEcJ7..5f0dj.IHGwWA7sKZZF7CFL/LUqCXnoySf/zmW', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 575485547)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 26', 'user-26@example.com', '$2a$04$5Ajvpms1jcdQM4nqsE3ZRewlaxAec3ooYYULjcrt98xvP.H69/J5q', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 994338771)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 27', 'user-27@example.com', '$2a$04$HhiCWY0p0HyRSkbhN8nEsebxsk0LRljphem61IKdyA179kXfhZ7H2', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 205739844)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 28', 'user-28@example.com', '$2a$04$IW27wzSVWy7Sn/0ETpnhZOgpR/4C1jbmjRGVVDop71WrI4XxM7zlu', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 486296279)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 29', 'user-29@example.com', '$2a$04$jOMXPsGbQlYCCV91fyb4I.0jISNXBdHGYpR92zU6LlFp1tvo1vYTa', 1, '2014-12-24 22:48:48', '2014-12-24 22:48:48', '2014-12-24 22:48:48', 737901126)[0m
+  [1m[35m (74.5ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+------------------------------------------------
+UsersSignupTest: test_invalid_signup_information
+------------------------------------------------
+Started GET "/signup" for 127.0.0.1 at 2014-12-24 22:48:48 +0000
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (21.4ms)
+  Rendered users/new.html.erb within layouts/application (694.6ms)
+  Rendered layouts/_shim.html.erb (0.9ms)
+  Rendered layouts/_header.html.erb (16.6ms)
+  Rendered layouts/_footer.html.erb (1.7ms)
+Completed 200 OK in 1228ms (Views: 1190.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (28.7ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+Started POST "/users" for 127.0.0.1 at 2014-12-24 22:48:50 +0000
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"", "email"=>"user@invalid", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@invalid' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered shared/_error_messages.html.erb (2.3ms)
+  Rendered users/new.html.erb within layouts/application (4.8ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 54ms (Views: 6.5ms | ActiveRecord: 0.7ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------------------------
+UsersSignupTest: test_valid_signup_information
+----------------------------------------------
+Started GET "/signup" for 127.0.0.1 at 2014-12-24 22:48:50 +0000
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `users`
+Started POST "/users" for 127.0.0.1 at 2014-12-24 22:48:50 +0000
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1
+  [1m[36mSQL (22.4ms)[0m  [1mINSERT INTO `users` (`activation_digest`, `created_at`, `email`, `name`, `password_digest`, `updated_at`) VALUES ('$2a$04$rYl/SPSU4VyK691Rm0x2kOgNA.CPlCSH5nHwG6KyogX.i.zvawb6K', '2014-12-24 22:48:50', 'user@example.com', 'Example User', '$2a$04$ItZEL1v5J21ehkVDvoLqAuUm5K.b0N6Aa/.hCgXkXy1HMUK.SPy7K', '2014-12-24 22:48:50')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+
+UserMailer#account_activation: processed outbound mail in 729.9ms
+
+Sent mail to user@example.com (144.4ms)
+Date: Wed, 24 Dec 2014 22:48:51 +0000
+From: noreply@example.com
+To: user@example.com
+Message-ID: <549b42d37898_179963fe0d08524607463d@MacBook-Pro.local.mail>
+Subject: Account activation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_549b42d2e90c5_179963fe0d085246074581";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_549b42d2e90c5_179963fe0d085246074581
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi Example User,
+
+Welcome to the Sample App! Click on the link below to activate your account:
+
+http://localhost:3000/account_activations/jTMWQux4yP0e8ONBQe3Xng/edit?email=user%40example.com
+----==_mimepart_549b42d2e90c5_179963fe0d085246074581
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h1>Sample App</h1>
+
+<p>Hi Example User,</p>
+
+<p>
+Welcome to the Sample App! Click on the link below to activate your account:
+</p>
+
+<a href="http://localhost:3000/account_activations/jTMWQux4yP0e8ONBQe3Xng/edit?email=user%40example.com">Activate</a>
+----==_mimepart_549b42d2e90c5_179963fe0d085246074581--
+
+Redirected to http://www.example.com/
+Completed 302 Found in 928ms (ActiveRecord: 23.1ms)
+Started GET "/" for 127.0.0.1 at 2014-12-24 22:48:51 +0000
+Processing by StaticPagesController#home as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 47ms (Views: 45.9ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+  [1m[35m (54.5ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+--------------------------------------------------
+StaticPagesControllerTest: test_should_get_contact
+--------------------------------------------------
+Processing by StaticPagesController#contact as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 18ms (Views: 17.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+-----------------------------------------------
+StaticPagesControllerTest: test_should_get_help
+-----------------------------------------------
+Processing by StaticPagesController#help as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+-----------------------------------------------
+StaticPagesControllerTest: test_should_get_home
+-----------------------------------------------
+Processing by StaticPagesController#home as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------------------------------------------------------
+UserTest: test_authenticated?_should_return_false_for_a_user_with_nil_digest
+----------------------------------------------------------------------------
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+-----------------------------------------------
+UserTest: test_email_addresses_should_be_unique
+-----------------------------------------------
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`activation_digest`, `created_at`, `email`, `name`, `password_digest`, `updated_at`) VALUES ('$2a$04$eYYobK68E2GlPZ77udxQuu/uKvydVuDFyVQbgGkxuE1cMVN0gNKgK', '2014-12-24 22:48:51', 'user@example.com', 'Example User', '$2a$04$Ld6DSBYvIdLwGKYMXQTH2O/pw3kJJ2sw12fn3K9UOJXMm0MxHdmki', '2014-12-24 22:48:51')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'USER@EXAMPLE.COM' LIMIT 1
+  [1m[36m (15.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+--------------------------------------
+UserTest: test_email_should_be_present
+--------------------------------------
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+-------------------------------------------------------------
+UserTest: test_email_validation_should_accept_valid_addresses
+-------------------------------------------------------------
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'USER@foo.COM' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'A_US-ER@foo.bar.org' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'first.last@foo.jp' LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'alice+bob@baz.cn' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-------------------------------------
+UserTest: test_name_should_be_present
+-------------------------------------
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------------------------------
+UserTest: test_password_should_have_a_minimum_length
+----------------------------------------------------
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------
+UserTest: test_should_be_valid
+------------------------------
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+---------------------------------------------------
+UsersLoginTest: test_login_with_invalid_information
+---------------------------------------------------
+Started GET "/login" for 127.0.0.1 at 2014-12-24 22:48:51 +0000
+Processing by SessionsController#new as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 85ms (Views: 84.4ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2014-12-24 22:48:51 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`email` = '' LIMIT 1
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 43ms (Views: 5.2ms | ActiveRecord: 0.5ms)
+Started GET "/" for 127.0.0.1 at 2014-12-24 22:48:51 +0000
+Processing by StaticPagesController#home as HTML
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+---------------------------------------
+UserMailerTest: test_account_activation
+---------------------------------------
+  [1m[36mUser Load (13.0ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 762146111 LIMIT 1[0m
+
+UserMailer#account_activation: processed outbound mail in 4.9ms
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+-----------------------------------
+UserMailerTest: test_password_reset
+-----------------------------------
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 762146111 LIMIT 1
+
+UserMailer#password_reset: processed outbound mail in 20.8ms
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+----------------------------------------
+PasswordResetsTest: test_password_resets
+----------------------------------------
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 762146111 LIMIT 1[0m
+Started GET "/password_resets/new" for 127.0.0.1 at 2014-12-24 22:48:51 +0000
+Processing by PasswordResetsController#new as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 18ms (Views: 17.4ms | ActiveRecord: 0.0ms)
+Started POST "/password_resets" for 127.0.0.1 at 2014-12-24 22:48:51 +0000
+Processing by PasswordResetsController#create as HTML
+  Parameters: {"password_reset"=>"[FILTERED]"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`email` = '' LIMIT 1
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.4ms)
+Started POST "/password_resets" for 127.0.0.1 at 2014-12-24 22:48:51 +0000
+Processing by PasswordResetsController#create as HTML
+  Parameters: {"password_reset"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'michael@example.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (66.8ms)[0m  [1mUPDATE `users` SET `reset_digest` = '$2a$04$wjp7yUNwEy.tDR9Pu3KMoOGE1chavrHr7svAEFQnxewAN6EdYRuTu', `updated_at` = '2014-12-24 22:48:51' WHERE `users`.`id` = 762146111[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  UPDATE `users` SET `reset_send_at` = '2014-12-24 22:48:51', `updated_at` = '2014-12-24 22:48:51' WHERE `users`.`id` = 762146111
+  [1m[36m (17.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+UserMailer#password_reset: processed outbound mail in 45.0ms
+
+Sent mail to michael@example.com (3.1ms)
+Date: Wed, 24 Dec 2014 22:48:51 +0000
+From: noreply@example.com
+To: michael@example.com
+Message-ID: <549b42d3b0266_179963fe0d0852460750bd@MacBook-Pro.local.mail>
+Subject: Password reset
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_549b42d3afa00_179963fe0d0852460749f0";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_549b42d3afa00_179963fe0d0852460749f0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+To reset your password click the link below:
+
+http://exemple.org/password_resets/esXTzCRblbP4YzVtqbNY1w/edit?email=michael%40example.com
+
+This link will expire in two hours.
+
+If you did not request your password to be reset, please ignore this email and
+your password will stay as it is.
+----==_mimepart_549b42d3afa00_179963fe0d0852460749f0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h1>Password reset</h1>
+
+<p>To reset your password click the link below:</p>
+
+<a href="http://exemple.org/password_resets/esXTzCRblbP4YzVtqbNY1w/edit?email=michael%40example.com">Reset password</a>
+
+<p>This link will expire in two hours.</p>
+
+<p>
+If you did not request your password to be reset, please ignore this email and
+your password will stay as it is.
+</p>
+----==_mimepart_549b42d3afa00_179963fe0d0852460749f0--
+
+Redirected to http://www.example.com/
+Completed 302 Found in 144ms (ActiveRecord: 85.9ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 762146111 LIMIT 1
+Started GET "/password_resets/esXTzCRblbP4YzVtqbNY1w/edit?email=" for 127.0.0.1 at 2014-12-24 22:48:51 +0000
+Processing by PasswordResetsController#edit as HTML
+  Parameters: {"email"=>"", "id"=>"esXTzCRblbP4YzVtqbNY1w"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`email` = '' LIMIT 1[0m
+Redirected to http://www.example.com/
+Filter chain halted as :valid_user rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE `users` SET `activated` = 0, `updated_at` = '2014-12-24 22:48:51' WHERE `users`.`id` = 762146111[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/password_resets/esXTzCRblbP4YzVtqbNY1w/edit?email=michael%40example.com" for 127.0.0.1 at 2014-12-24 22:48:51 +0000
+Processing by PasswordResetsController#edit as HTML
+  Parameters: {"email"=>"michael@example.com", "id"=>"esXTzCRblbP4YzVtqbNY1w"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'michael@example.com' LIMIT 1[0m
+Redirected to http://www.example.com/
+Filter chain halted as :valid_user rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE `users` SET `activated` = 1, `updated_at` = '2014-12-24 22:48:51' WHERE `users`.`id` = 762146111[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/password_resets/wrong%20token/edit?email=michael%40example.com" for 127.0.0.1 at 2014-12-24 22:48:51 +0000
+Processing by PasswordResetsController#edit as HTML
+  Parameters: {"email"=>"michael@example.com", "id"=>"wrong token"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'michael@example.com' LIMIT 1[0m
+Redirected to http://www.example.com/
+Filter chain halted as :valid_user rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+Started GET "/password_resets/esXTzCRblbP4YzVtqbNY1w/edit?email=michael%40example.com" for 127.0.0.1 at 2014-12-24 22:48:51 +0000
+Processing by PasswordResetsController#edit as HTML
+  Parameters: {"email"=>"michael@example.com", "id"=>"esXTzCRblbP4YzVtqbNY1w"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'michael@example.com' LIMIT 1
+  Rendered shared/_error_messages.html.erb (0.2ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 41ms (Views: 37.9ms | ActiveRecord: 0.3ms)
+Started PATCH "/password_resets/esXTzCRblbP4YzVtqbNY1w" for 127.0.0.1 at 2014-12-24 22:48:51 +0000
+Processing by PasswordResetsController#update as HTML
+  Parameters: {"email"=>"michael@example.com", "user"=>{"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "id"=>"esXTzCRblbP4YzVtqbNY1w"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'michael@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (61.1ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE (`users`.`email` = 'michael@example.com' AND `users`.`id` != 762146111) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered shared/_error_messages.html.erb (0.6ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 72ms (Views: 3.3ms | ActiveRecord: 61.7ms)
+Started PATCH "/password_resets/esXTzCRblbP4YzVtqbNY1w" for 127.0.0.1 at 2014-12-24 22:48:51 +0000
+Processing by PasswordResetsController#update as HTML
+  Parameters: {"email"=>"michael@example.com", "user"=>{"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "id"=>"esXTzCRblbP4YzVtqbNY1w"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'michael@example.com' LIMIT 1[0m
+  Rendered shared/_error_messages.html.erb (0.0ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 6ms (Views: 2.6ms | ActiveRecord: 0.3ms)
+Started PATCH "/password_resets/esXTzCRblbP4YzVtqbNY1w" for 127.0.0.1 at 2014-12-24 22:48:51 +0000
+Processing by PasswordResetsController#update as HTML
+  Parameters: {"email"=>"michael@example.com", "user"=>{"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "id"=>"esXTzCRblbP4YzVtqbNY1w"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'michael@example.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users`  WHERE (`users`.`email` = 'michael@example.com' AND `users`.`id` != 762146111) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE `users` SET `password_digest` = '$2a$04$NCRRXY0nji7bCdlzRKb.5e9FKrffe.G.jTA5rJhw7h0rsCvwkU7kO', `updated_at` = '2014-12-24 22:48:51' WHERE `users`.`id` = 762146111[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/users/762146111
+Completed 302 Found in 13ms (ActiveRecord: 1.4ms)
+  [1m[36m (82.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+Processing by SessionsController#new as HTML
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (37.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (8.1ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.4ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mFixture Delete (50.6ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (85.1ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `admin`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('Michael Example', 'michael@example.com', '$2a$04$XlafgP6t4syQSqxWeNcd7OV9MD/RPgnaJGMLGE0JQdeuZCHRlL0ka', 1, 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 762146111)
+  [1m[36mFixture Insert (0.6ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('Sterling Archer', 'duchess@example.gov', '$2a$04$D4l0MvlphtTJBch6lz1BUOUcPzCTihwfgrCzggasgoxQprFTKLlq2', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 950961012)[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('Lana Kane', 'hands@example.gov', '$2a$04$kWTMQ3Af9Te0CiPelWkBNuuP4y3vkKf0ZZ8UBkgK0CPPRlkKyRTXO', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 409608538)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('Mallory Archer', 'boss@example.gov', '$2a$04$w9KkFdHJkhw/ifQO4za.nOLvkz0FM0A1GeTwF6A4yRC77iHPyeVm6', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 785162917)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 0', 'user-0@example.com', '$2a$04$B4t3PmozgS7r12H.ygaKfuVljoPSlDiLo8mlJ/Cd8WrzhzVbvgpgO', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 338193910)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 1', 'user-1@example.com', '$2a$04$uZdvZAnQyt3EavXgnDQ1we.d1JHJ/jtuNTIwXy5peD1V3OOpBdp1u', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 590306657)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 2', 'user-2@example.com', '$2a$04$U0/7SusJacb7wi0fIp7Xf./veYRkN/6L7uUsv5Qpv.66VkYfaBbsu', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 975572189)
+  [1m[36mFixture Insert (1.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 3', 'user-3@example.com', '$2a$04$spNxN3GyPRKCJm.spBT8JeLkULYQJOm8CYacQ4PDGpzlNawDXaJT6', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 220281934)[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 4', 'user-4@example.com', '$2a$04$NfUylEuAbRQyIv/YxWGtr.MdfOiDGLoH6t26J8ozSWQNqemR5.oEq', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 323332591)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 5', 'user-5@example.com', '$2a$04$dfkq4aJq.aBf2zBJ9frsL.dZYmEVyofJTNlwaI9WWST39CrUSqSbu', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 608344442)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 6', 'user-6@example.com', '$2a$04$OZojV6fM8/yjbuNzZEUo.ObAELo7UIUAJduQsptMvEoz6rpq2bxI6', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 1028376774)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 7', 'user-7@example.com', '$2a$04$zfx6bvfowuLrJogF6jH8TOLvWDTWJPO4kY/n0qasv1egFTQHBknwK', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 172816471)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 8', 'user-8@example.com', '$2a$04$dJx2ERSIWeQrbbSH9Fc0yuVwsA7MBXVNXPlCbVNkeNfMGR73O7/q.', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 452191684)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 9', 'user-9@example.com', '$2a$04$maIn2pjGak9wskCRPMpzS.d92PlUR4d82qgH9eG7L.yuihqqXdH6K', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 771020115)[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 10', 'user-10@example.com', '$2a$04$PFI7Hkz2zrVcoxT5Kzukte4kbEDk4Vq6lOqcankG2D8FmyPR8qTse', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 956993830)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 11', 'user-11@example.com', '$2a$04$TLTlE70dup2kN4sQwjoKvOxXNwfFDGuDPj0a0gaz1hsVjmkiiu6lu', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 235774389)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 12', 'user-12@example.com', '$2a$04$jqKM3GjEwuDdPaRRNJ7RN.hzFFiuHkIPxCVb.TuTx8P/nIi9pHo2i', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 386199561)
+  [1m[36mFixture Insert (0.6ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 13', 'user-13@example.com', '$2a$04$eGAYKxANYDmdc/vpi7xBPOkMDWK7mQRlz6wblQ.bbLNs1Jm5O/2jG', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 537116830)[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 14', 'user-14@example.com', '$2a$04$xO7eNkIrEn/CZODkgmZ.v.RdbJFSYS1Gq2h0HOBggPQyh38tP.jnG', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 1046959423)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 15', 'user-15@example.com', '$2a$04$s2TFhU4PzcoFeI76ZvKV1eoezGchCfu21QIYi4VNIOQ1yKc1IeqRW', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 157312430)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 16', 'user-16@example.com', '$2a$04$LrxrJCDBVO96uc./wjsPP.MuNG4gYnhQ3DFKeml1ei1yLyPR2Ozry', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 275330066)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 17', 'user-17@example.com', '$2a$04$obZuKfsS4Pb2rETJOIEuw.qbHRfH6nt0JRpnRbixrZVRmxw.H/kli', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 661521543)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 18', 'user-18@example.com', '$2a$04$AKUSyWBRBmTgIiwHpBm8Geb/vuTwNxXw5vwbp/4DVWK9BnEqFoNH6', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 936450328)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 19', 'user-19@example.com', '$2a$04$qd3bNNxWL0/x67ifdAVLeuUcPclDfws6eE2UDEMa7GeftT/p2Osd2', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 14035331)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 20', 'user-20@example.com', '$2a$04$f2Dgx0LlTRItXCCBh.vnyOStAy2Uzb5rqB4GNvMtoXLNDQ9luSHo2', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 304595689)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 21', 'user-21@example.com', '$2a$04$kzpuMY7V.4Kr9grktmBl3efqL0ju9X84svHeZ0kmJ1EPJCNaNEphu', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 622916212)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 22', 'user-22@example.com', '$2a$04$cBTRzI3uPp4el0O4RV/8NuS7B/gCX82q7H/rbzCEroYEhyNyxDwZu', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 1009361868)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 23', 'user-23@example.com', '$2a$04$T/wtwE4WPQsh0CSWiUlIEO78QOZ9S3y51mnnl4IY7OyT9kVOtBKVW', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 187601757)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 24', 'user-24@example.com', '$2a$04$WhEHFBGNP3vd1EK3FR.KduQ7Sr74VWVn60l6PtTZqHeKm2Oh3NECO', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 357172992)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 25', 'user-25@example.com', '$2a$04$DbzY51DBAtlKN/y21vo4OOW/YXAqzrJU70GgjF1rswQcpAOXQLLM2', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 575485547)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 26', 'user-26@example.com', '$2a$04$s2YQZI/oFgaZtYTvxa1tue6jnNwDdp5Q3y86ONygnnFAMqoZEFb3G', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 994338771)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 27', 'user-27@example.com', '$2a$04$pbB6FLZfzK8QC8e0Lg1zluyea0gpSlUyItQI7CYkTSZAkqWMkCEWa', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 205739844)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 28', 'user-28@example.com', '$2a$04$eWPkrrGN5SV.3bNFQj6Ok.4ThsXmjC.tgtt7wG1z.EwnpkDdzVcYq', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 486296279)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`name`, `email`, `password_digest`, `activated`, `activated_at`, `created_at`, `updated_at`, `id`) VALUES ('User 29', 'user-29@example.com', '$2a$04$626o.WGxlq7NkJ29xmKEROPHFrcqSj807WLJTPwiQS0En/cvwL4VC', 1, '2014-12-25 15:26:55', '2014-12-25 15:26:55', '2014-12-25 15:26:55', 737901126)[0m
+  [1m[35m (71.2ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-------------------------------------------
+SessionsControllerTest: test_should_get_new
+-------------------------------------------
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1162.9ms)
+  Rendered layouts/_shim.html.erb (1.0ms)
+  Rendered layouts/_header.html.erb (15.7ms)
+  Rendered layouts/_footer.html.erb (1.9ms)
+Completed 200 OK in 1787ms (Views: 1786.5ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+---------------------------------------
+UserMailerTest: test_account_activation
+---------------------------------------
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 762146111 LIMIT 1[0m
+
+UserMailer#account_activation: processed outbound mail in 35.0ms
+  [1m[35m (16.0ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+-----------------------------------
+UserMailerTest: test_password_reset
+-----------------------------------
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 762146111 LIMIT 1
+
+UserMailer#password_reset: processed outbound mail in 27.8ms
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+------------------------------------------------
+UsersSignupTest: test_invalid_signup_information
+------------------------------------------------
+Started GET "/signup" for 127.0.0.1 at 2014-12-25 15:26:57 +0000
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (23.7ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 106ms (Views: 68.4ms | ActiveRecord: 0.0ms)
+  [1m[36m (29.3ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+Started POST "/users" for 127.0.0.1 at 2014-12-25 15:26:57 +0000
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"", "email"=>"user@invalid", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (5.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@invalid' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered shared/_error_messages.html.erb (3.6ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 125ms (Views: 8.8ms | ActiveRecord: 6.2ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+----------------------------------------------
+UsersSignupTest: test_valid_signup_information
+----------------------------------------------
+Started GET "/signup" for 127.0.0.1 at 2014-12-25 15:26:58 +0000
+Processing by UsersController#new as HTML
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `users`
+Started POST "/users" for 127.0.0.1 at 2014-12-25 15:26:58 +0000
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"name"=>"Example User", "email"=>"user@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1
+  [1m[36mSQL (23.1ms)[0m  [1mINSERT INTO `users` (`activation_digest`, `created_at`, `email`, `name`, `password_digest`, `updated_at`) VALUES ('$2a$04$N2zSUAEOprM7nCsncF2Glu5gUWMM19MaCoglvViYuKf8FmzrqN7gm', '2014-12-25 15:26:58', 'user@example.com', 'Example User', '$2a$04$WN6oZAu4B9svmtp6SlLtQ.Nc1YifJ3NdjmqAC2/Z0.os5k7Oge3gu', '2014-12-25 15:26:58')[0m
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+
+UserMailer#account_activation: processed outbound mail in 5.1ms
+
+Sent mail to user@example.com (19.2ms)
+Date: Thu, 25 Dec 2014 15:26:58 +0000
+From: noreply@example.com
+To: user@example.com
+Message-ID: <549c2cc22c1cb_689c3ff049c52460662ef@MacBook-Pro.local.mail>
+Subject: Account activation
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_549c2cc22b369_689c3ff049c52460661c";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_549c2cc22b369_689c3ff049c52460661c
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi Example User,
+
+Welcome to the Sample App! Click on the link below to activate your account:
+
+http://localhost:3000/account_activations/3rM1VokNpLfvgnLF4iQp9A/edit?email=user%40example.com
+----==_mimepart_549c2cc22b369_689c3ff049c52460661c
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h1>Sample App</h1>
+
+<p>Hi Example User,</p>
+
+<p>
+Welcome to the Sample App! Click on the link below to activate your account:
+</p>
+
+<a href="http://localhost:3000/account_activations/3rM1VokNpLfvgnLF4iQp9A/edit?email=user%40example.com">Activate</a>
+----==_mimepart_549c2cc22b369_689c3ff049c52460661c--
+
+Redirected to http://www.example.com/
+Completed 302 Found in 62ms (ActiveRecord: 24.0ms)
+Started GET "/" for 127.0.0.1 at 2014-12-25 15:26:58 +0000
+Processing by StaticPagesController#home as HTML
+  Rendered layouts/_shim.html.erb (0.2ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 139ms (Views: 138.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+  [1m[35m (83.7ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+----------------------------------------
+PasswordResetsTest: test_password_resets
+----------------------------------------
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 762146111 LIMIT 1
+Started GET "/password_resets/new" for 127.0.0.1 at 2014-12-25 15:26:58 +0000
+Processing by PasswordResetsController#new as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 71ms (Views: 69.9ms | ActiveRecord: 0.0ms)
+Started POST "/password_resets" for 127.0.0.1 at 2014-12-25 15:26:58 +0000
+Processing by PasswordResetsController#create as HTML
+  Parameters: {"password_reset"=>"[FILTERED]"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`email` = '' LIMIT 1[0m
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 68ms (Views: 4.7ms | ActiveRecord: 0.5ms)
+Started POST "/password_resets" for 127.0.0.1 at 2014-12-25 15:26:58 +0000
+Processing by PasswordResetsController#create as HTML
+  Parameters: {"password_reset"=>"[FILTERED]"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'michael@example.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `reset_digest` = '$2a$04$UUNgaE60GSt4nkjFm3/9vu/nEWskVaDUoCB3uLEl8M8h6c/RLZMKO', `updated_at` = '2014-12-25 15:26:58' WHERE `users`.`id` = 762146111
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE `users` SET `reset_send_at` = '2014-12-25 15:26:58', `updated_at` = '2014-12-25 15:26:58' WHERE `users`.`id` = 762146111[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+UserMailer#password_reset: processed outbound mail in 2.5ms
+
+Sent mail to michael@example.com (3.1ms)
+Date: Thu, 25 Dec 2014 15:26:58 +0000
+From: noreply@example.com
+To: michael@example.com
+Message-ID: <549c2cc2bb2ed_689c3ff049c524606641c@MacBook-Pro.local.mail>
+Subject: Password reset
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_549c2cc2baaf4_689c3ff049c5246066361";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_549c2cc2baaf4_689c3ff049c5246066361
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+To reset your password click the link below:
+
+http://exemple.org/password_resets/K4_Ln2dnC4FR2rrAHUp0sg/edit?email=michael%40example.com
+
+This link will expire in two hours.
+
+If you did not request your password to be reset, please ignore this email and
+your password will stay as it is.
+----==_mimepart_549c2cc2baaf4_689c3ff049c5246066361
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h1>Password reset</h1>
+
+<p>To reset your password click the link below:</p>
+
+<a href="http://exemple.org/password_resets/K4_Ln2dnC4FR2rrAHUp0sg/edit?email=michael%40example.com">Reset password</a>
+
+<p>This link will expire in two hours.</p>
+
+<p>
+If you did not request your password to be reset, please ignore this email and
+your password will stay as it is.
+</p>
+----==_mimepart_549c2cc2baaf4_689c3ff049c5246066361--
+
+Redirected to http://www.example.com/
+Completed 302 Found in 13ms (ActiveRecord: 1.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 762146111 LIMIT 1[0m
+Started GET "/password_resets/K4_Ln2dnC4FR2rrAHUp0sg/edit?email=" for 127.0.0.1 at 2014-12-25 15:26:58 +0000
+Processing by PasswordResetsController#edit as HTML
+  Parameters: {"email"=>"", "id"=>"K4_Ln2dnC4FR2rrAHUp0sg"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`email` = '' LIMIT 1
+Redirected to http://www.example.com/
+Filter chain halted as :valid_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.2ms)
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `activated` = 0, `updated_at` = '2014-12-25 15:26:58' WHERE `users`.`id` = 762146111
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/password_resets/K4_Ln2dnC4FR2rrAHUp0sg/edit?email=michael%40example.com" for 127.0.0.1 at 2014-12-25 15:26:58 +0000
+Processing by PasswordResetsController#edit as HTML
+  Parameters: {"email"=>"michael@example.com", "id"=>"K4_Ln2dnC4FR2rrAHUp0sg"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'michael@example.com' LIMIT 1
+Redirected to http://www.example.com/
+Filter chain halted as :valid_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE `users` SET `activated` = 1, `updated_at` = '2014-12-25 15:26:58' WHERE `users`.`id` = 762146111
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/password_resets/wrong%20token/edit?email=michael%40example.com" for 127.0.0.1 at 2014-12-25 15:26:58 +0000
+Processing by PasswordResetsController#edit as HTML
+  Parameters: {"email"=>"michael@example.com", "id"=>"wrong token"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'michael@example.com' LIMIT 1
+Redirected to http://www.example.com/
+Filter chain halted as :valid_user rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+Started GET "/password_resets/K4_Ln2dnC4FR2rrAHUp0sg/edit?email=michael%40example.com" for 127.0.0.1 at 2014-12-25 15:26:58 +0000
+Processing by PasswordResetsController#edit as HTML
+  Parameters: {"email"=>"michael@example.com", "id"=>"K4_Ln2dnC4FR2rrAHUp0sg"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'michael@example.com' LIMIT 1[0m
+  Rendered shared/_error_messages.html.erb (0.2ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 61ms (Views: 56.0ms | ActiveRecord: 0.3ms)
+Started PATCH "/password_resets/K4_Ln2dnC4FR2rrAHUp0sg" for 127.0.0.1 at 2014-12-25 15:26:58 +0000
+Processing by PasswordResetsController#update as HTML
+  Parameters: {"email"=>"michael@example.com", "user"=>{"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "id"=>"K4_Ln2dnC4FR2rrAHUp0sg"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'michael@example.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users`  WHERE (`users`.`email` = 'michael@example.com' AND `users`.`id` != 762146111) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered shared/_error_messages.html.erb (0.9ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 18ms (Views: 4.7ms | ActiveRecord: 1.2ms)
+Started PATCH "/password_resets/K4_Ln2dnC4FR2rrAHUp0sg" for 127.0.0.1 at 2014-12-25 15:26:58 +0000
+Processing by PasswordResetsController#update as HTML
+  Parameters: {"email"=>"michael@example.com", "user"=>{"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "id"=>"K4_Ln2dnC4FR2rrAHUp0sg"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'michael@example.com' LIMIT 1
+  Rendered shared/_error_messages.html.erb (0.1ms)
+  Rendered layouts/_shim.html.erb (0.0ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 5ms (Views: 2.6ms | ActiveRecord: 0.3ms)
+Started PATCH "/password_resets/K4_Ln2dnC4FR2rrAHUp0sg" for 127.0.0.1 at 2014-12-25 15:26:58 +0000
+Processing by PasswordResetsController#update as HTML
+  Parameters: {"email"=>"michael@example.com", "user"=>{"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "id"=>"K4_Ln2dnC4FR2rrAHUp0sg"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'michael@example.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE (`users`.`email` = 'michael@example.com' AND `users`.`id` != 762146111) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `password_digest` = '$2a$04$ZxIkXI3NpC9Kl5XhiE4ndeorENVfIYNzlrfVDJNKKIn6AG50lAKDW', `updated_at` = '2014-12-25 15:26:58' WHERE `users`.`id` = 762146111
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/users/762146111
+Completed 302 Found in 11ms (ActiveRecord: 1.4ms)
+  [1m[35m (27.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+---------------------------------------------------
+UsersLoginTest: test_login_with_invalid_information
+---------------------------------------------------
+Started GET "/login" for 127.0.0.1 at 2014-12-25 15:26:58 +0000
+Processing by SessionsController#new as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 48ms (Views: 48.0ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2014-12-25 15:26:58 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`email` = '' LIMIT 1
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 0.4ms)
+Started GET "/" for 127.0.0.1 at 2014-12-25 15:26:58 +0000
+Processing by StaticPagesController#home as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+--------------------------------------------------
+StaticPagesControllerTest: test_should_get_contact
+--------------------------------------------------
+Processing by StaticPagesController#contact as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 20ms (Views: 19.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------------
+StaticPagesControllerTest: test_should_get_help
+-----------------------------------------------
+Processing by StaticPagesController#help as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 28ms (Views: 28.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+-----------------------------------------------
+StaticPagesControllerTest: test_should_get_home
+-----------------------------------------------
+Processing by StaticPagesController#home as HTML
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------------------------------------------------
+UserTest: test_authenticated?_should_return_false_for_a_user_with_nil_digest
+----------------------------------------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+-----------------------------------------------
+UserTest: test_email_addresses_should_be_unique
+-----------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1
+  [1m[36mSQL (28.9ms)[0m  [1mINSERT INTO `users` (`activation_digest`, `created_at`, `email`, `name`, `password_digest`, `updated_at`) VALUES ('$2a$04$USlsOkVY0EKPqPFe6LxDB.0WvXxRjHkDPTyB0R/TlI/DeaigyWLJu', '2014-12-25 15:26:59', 'user@example.com', 'Example User', '$2a$04$0GcjyR.hZTF/FKYRnlV75Oh1sbkE7uWXOQaYYl/nWqlgrGwczcMz2', '2014-12-25 15:26:59')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'USER@EXAMPLE.COM' LIMIT 1[0m
+  [1m[35m (0.9ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+--------------------------------------
+UserTest: test_email_should_be_present
+--------------------------------------
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+-------------------------------------------------------------
+UserTest: test_email_validation_should_accept_valid_addresses
+-------------------------------------------------------------
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'USER@foo.COM' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'A_US-ER@foo.bar.org' LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'first.last@foo.jp' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'alice+bob@baz.cn' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+-------------------------------------
+UserTest: test_name_should_be_present
+-------------------------------------
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+----------------------------------------------------
+UserTest: test_password_should_have_a_minimum_length
+----------------------------------------------------
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+------------------------------
+UserTest: test_should_be_valid
+------------------------------
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = 'user@example.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
